@@ -1,17 +1,17 @@
-const chai = require('chai');
-const chaiHttp = require('chai-http');
-const app = require('../src/index');
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+import app from '../src/index.js'; // Ensure to use .js for ESM imports
 
 chai.use(chaiHttp);
-chai.should();
+const { expect } = chai;
 
 describe("Basic Test", () => {
   it("should return Hello World", (done) => {
     chai.request(app)
       .get('/')
       .end((err, res) => {
-        res.should.have.status(200);
-        res.text.should.equal('Hello World!');
+        expect(res).to.have.status(200);
+        expect(res.text).to.equal('Hello World!');
         done();
       });
   });
