@@ -18,6 +18,6 @@ describe('GET /', () => {
   it('should return Hello World!', async () => {
     const response = await request(server).get('/');
     expect(response.statusCode).toBe(200);
-    expect(response.text).toBe('Hello World!');
+    expect(response.text).toBe('Hello this is review!');
   });
 });
